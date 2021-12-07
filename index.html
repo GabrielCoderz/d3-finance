@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>First Project</title>
+  <style>
+    h2, p {
+      margin: 10px 0;
+    }
+
+    header {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body class="indigo">
+
+  <header class="indigo darken-1 section">
+    <h2 class="center white-text">D3.Js</h2>
+    <p class="flow-text grey-text center text-lighten-2">Rastreador de dinheiro mensal</p>
+  </header>
+
+  <div class="container section">
+    <div class="row">
+      <div class="col s12 m6">
+        <form class="card z-depth-0" autocomplete="off">
+          <div class="card-content">
+            <span class="card-title indigo-text">Adicione um item:</span>
+            <div class="input-field">
+              <input type="text" id="name">
+              <label for="name">Nome</label>
+            </div>
+            <div class="input-field">
+              <input type="text" id="cost">
+              <label for="number">Valor (R$)</label>
+            </div>
+            <div class="input-field center">
+              <button class="btn-large pink white-text">Adicionar</button>
+            </div>
+            <div class="input-field center">
+              <p class="red-text" id="error"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col s12 m5 push-m1">
+        <div class="canvas">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAwGL0KpH6CfVx2LIYaansJVXql5Mqsqjw",
+        authDomain: "udemy-d3-firebase-b9875.firebaseapp.com",
+        projectId: "udemy-d3-firebase-b9875",
+        storageBucket: "udemy-d3-firebase-b9875.appspot.com",
+        messagingSenderId: "558447261364",
+        appId: "1:558447261364:web:c89f8b441b62ceaaa0c9e1"
+      };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const settings = { timestampsInSnapshots: true }
+    db.settings(settings)
+  </script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="index.js"></script>
+  <script src="graph.js"></script>
+</body>
+</html>
